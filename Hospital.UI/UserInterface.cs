@@ -14,96 +14,31 @@ namespace Hospital.UI
     public static class UserInterface
     {
         private static readonly IDoctorService doctorService = new DoctorService();
-        private static readonly ILogin loginService = new Login();
-        public static bool LoginSucces()
-        {
-            throw new NotImplementedException();
-        }
+        private static readonly Strategy loginStrategy;
         public static void Start()
-        {
-            Console.WriteLine("Hospital Menagment System 1.0.1");
-            int option = GetUserOption(new List<string> { "Login", "Register" });
-            switch (option)
+        { 
+            while (true)
             {
-                case 1: LoginPanel(); break;
-                case 2: RegisterPanel(); break;
-                default: throw new ArgumentOutOfRangeException();
-            }
-        }
-        private static void LoginPanel()
-        {
-            var loginData = GetLoginDetails();
-            Doctor doctor;
-            try
-            {
-                doctor = loginService.LoginDoctor(loginData.login, loginData.password).Result;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("\nWrong login or password..");
+                Console.Clear();
+                Console.WriteLine("Hospital Menagment System 1.0.1");
+                Console.WriteLine("Press any key to continue..");
                 Console.ReadKey();
+                Strategy loginStrategy;
+                int optionpanel = GetUserOption(new List<string> { "Doctor Panel", "Patient Panel" });
+                switch (optionpanel)
+                {
+                    case 1: loginStrategy = new DoctorStartegy(); break;
+                    case 2: loginStrategy = new PatientStrategy(); break;
+                    default: throw new ArgumentOutOfRangeException();
+                }
+                int optionlogin = GetUserOption(new List<string> { "Login", "Register" });
+                switch (optionlogin)
+                {
+                    case 1: loginStrategy.Login(); break;
+                    case 2: loginStrategy.Register(); break;
+                    default: throw new ArgumentOutOfRangeException();
+                }
             }
-        }
-
-        private static void RegisterPanel()
-        {
-            var questions = new List<string> { "FirstName*", "LastName*", "Login*", "Password*", "IdCardNumber*" };
-            var registerData = GetUserInput(questions);
-            var doctor = new Doctor();
-            foreach (var item in registerData)
-            {
-                doctor.GetType().GetProperty(item.Key).SetValue(doctor,item.Value,null);
-            }
-            try
-            {
-                doctorService.InsertDoctor(doctor);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("\nSomething went wrong..");
-                Console.ReadKey();
-            }
-        }
-
-        private static (string firstName, string lastName, string login, string password, string idCardNumber) GetRegisterDetails()
-        {
-            string firstName = String.Empty;
-            string lastName = String.Empty;
-            string login = String.Empty;
-            string password = String.Empty;
-            string idCardNumber = String.Empty;
-
-            while (String.IsNullOrEmpty(firstName))
-            {
-                Console.Clear();
-                Console.WriteLine("First Name* : ");
-                firstName = Console.ReadLine();
-            }
-            while (String.IsNullOrEmpty(lastName))
-            {
-                Console.Clear();
-                Console.WriteLine("Last Name* : ");
-                lastName = Console.ReadLine();
-            }
-            while (String.IsNullOrEmpty(login))
-            {
-                Console.Clear();
-                Console.WriteLine("Login* : ");
-                login = Console.ReadLine();
-            }
-            while (String.IsNullOrEmpty(password))
-            {
-                Console.Clear();
-                Console.WriteLine("Password* : ");
-                password = Console.ReadLine();
-            }
-            while (String.IsNullOrEmpty(idCardNumber))
-            {
-                Console.Clear();
-                Console.WriteLine("ID Card Number*(15 max) : ");
-                idCardNumber = Console.ReadLine();
-            }
-            return (firstName, lastName, login, password, idCardNumber);
         }
         public static Dictionary<string, string> GetUserInput(List<string> questions)
         {
@@ -114,14 +49,13 @@ namespace Hospital.UI
                 foreach (string question in questions)
                 {
                     var str = String.Empty;
-                    if (question.Contains("*"))
+                    if (question.Contains("ssword"))
                     {
-                        while(String.IsNullOrEmpty(str))
-                        {
-                            Console.Clear();
-                            Console.WriteLine(question);
-                            str = Console.ReadLine();
-                        }
+                        str = HidenPassword(question);
+                    }
+                    else if (question.Contains("*"))
+                    {
+                        str = Required(question);
                     }
                     else
                     {
@@ -152,57 +86,42 @@ namespace Hospital.UI
             }
             return answer;
         }
-
-        private static (string login, string password) GetLoginDetails()
+        private static string Required(string question)
         {
-            var login = String.Empty;
-            var password = String.Empty;
-
-            while (String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password))
+            string str = String.Empty;
+            while (String.IsNullOrEmpty(str))
             {
                 Console.Clear();
-                Console.WriteLine("Login: ");
-                login = Console.ReadLine();
-                if (String.IsNullOrEmpty(login))
-                {
-                    continue;
-                }
-                Console.WriteLine("Password: ");
-                ConsoleKeyInfo key;
-                do
-                {
-                    key = Console.ReadKey(true);
-                    if (key.Key != ConsoleKey.Backspace)
-                    {
-                        password += key.KeyChar;
-                        Console.Write("*");
-                    }
-                    else
-                    {
-                        Console.Write("\b");
-                    }
-                }
-                while (key.Key != ConsoleKey.Enter);
-                break;
+                Console.WriteLine(question);
+                str = Console.ReadLine();
             }
-            return (login, password.TrimEnd('\r'));
+            return str;
         }
-
-
-        public static void Hello()
+        private static string HidenPassword(string question)
         {
-            var patient = new Patient
+            string str = String.Empty;
+            Console.Clear();
+            Console.WriteLine(question);
+            ConsoleKeyInfo key;
+            do
             {
-                FirstName = "Damian",
-                LastName = "Dudek",
-                Login = "ddudek",
-                Password = "zaq1@WSX",
-                IdCardNumber = "1234567890"
-            };
-            ///Strategia do wyboru domunikatu na interfejsie urzytkownika.
-            //// Metoda wytwórcza do tworzenia poszczególnych obiektów.
-            Console.WriteLine("Dodano pacjenta");
+                key = Console.ReadKey(true);
+                if (key.Key != ConsoleKey.Backspace)
+                {
+                    str += key.KeyChar;
+                    Console.Write("*");
+                }
+                else
+                {
+                    if(str.Length>0)
+                    {
+                        str = str.Substring(0, str.Length - 1);
+                    }
+                    Console.Write("\b");
+                }
+            }
+            while (key.Key != ConsoleKey.Enter);
+            return str.TrimEnd('\r');
         }
-
     }
 }

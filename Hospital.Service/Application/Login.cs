@@ -16,8 +16,16 @@ namespace Hospital.Service.Application
         {
             using (var context = new ApplicationDbContext())
             {
-                var doctor = await context.Doctor.Where(x=>x.Login==login&&x.Password==password).ToListAsync();
-                return doctor.First();
+                var doctors = await context.Doctors.Where(x=>x.Login==login&&x.Password==password).ToListAsync();
+                return doctors.First();
+            }
+        }
+        public async Task<Patient> LoginPatient(string login, string password)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var patients = await context.Patients.Where(x => x.Login == login && x.Password == password).ToListAsync();
+                return patients.First();
             }
         }
     }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Hospital.Service.Application
 {
-    public interface ILogin
+    public interface IRegister
     {
-        Task<Doctor> LoginDoctor(string login, string password);
-        Task<Patient> LoginPatient(string login, string password);
+        void RegisterDoctor(Doctor doctor);
+        void RegisterPatient(Patient patient);
     }
 }

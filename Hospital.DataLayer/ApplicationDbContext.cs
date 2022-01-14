@@ -16,7 +16,7 @@ namespace Hospital.DataLayer
         //public DbSet<User> Users { get; set; }
         public DbSet<ContactInfo> ContactInfo { get; set; }
         public DbSet<Patient> Patients { get; set; }
-        public DbSet<Doctor> Doctor { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Specialisation> Specialisations { get; set; }
         public DbSet<Treatment> Treatments { get; set; }
         public DbSet<Bed> Beds { get; set; }
