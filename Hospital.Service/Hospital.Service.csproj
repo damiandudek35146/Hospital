@@ -11,8 +11,4 @@
     <ProjectReference Include="..\Hospital.Domain\Hospital.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\" />
-  </ItemGroup>
-
 </Project>
