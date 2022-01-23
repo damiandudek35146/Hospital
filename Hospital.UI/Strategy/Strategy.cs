@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hospital.UI
+﻿namespace Hospital.UI
 {
+    // This is an abstraction of strategy pattern which allows two behaviorus
     public abstract class Strategy
     {
+        public Facade SystemFasade { get; set; }
         public abstract void Login();
-        public abstract void Register();
+        public virtual void Register() { }
     }
 }

@@ -1,32 +1,37 @@
 ﻿using Hospital.Domain.Entities;
 using Hospital.Service.Application;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Hospital.UI
 {
+    // This is a specific implementation for patient strategy
     public class DoctorStartegy : Strategy
     {
-        private static readonly ILogin loginService = new Login();
+        private readonly IDoctorController _doctorController;
+        public DoctorStartegy(IDoctorController doctorController)
+        {
+            _doctorController = doctorController;
+        }
+        /// <summary>
+        /// Retrives login and passsword from console, then try to get user from database, then runs doctor system.
+        /// </summary>
         public override void Login()
         {
             var questions = new List<string> { "Login*", "Password*" };
             var loginData = UserInterface.GetUserInput(questions);
-            Doctor doctor;
-            try
+            var doctor = _doctorController.Login(loginData["Login"], loginData["Password"]).Result;
+            if (doctor.Login != null)
             {
-                doctor = loginService.LoginDoctor(loginData["Login"], loginData["Password"]).Result;
+                SystemFasade = new Facade();
+                SystemFasade.RunDoctorSystem(doctor);
             }
-            catch (Exception ex)
+            else
             {
                 Console.WriteLine("\nWrong login or password..");
                 Console.ReadKey();
             }
         }
-
+        /// <summary>
+        /// Retrives register data from console, then try to add user to database, then runs doctor system.
+        /// </summary>
         public override void Register()
         {
             var questions = new List<string> { "FirstName*", "LastName*", "Login*", "Password*", "IdCardNumber*" };
@@ -36,11 +41,13 @@ namespace Hospital.UI
             {
                 doctor.GetType().GetProperty(item.Key).SetValue(doctor, item.Value, null);
             }
-            try
+            var success = _doctorController.Register(doctor).Result;
+            if (success)
             {
-                //doctorService.InsertDoctor(doctor);
+                SystemFasade = new Facade();
+                SystemFasade.RunDoctorSystem(doctor);
             }
-            catch (Exception ex)
+            else
             {
                 Console.WriteLine("\nSomething went wrong..");
                 Console.ReadKey();
