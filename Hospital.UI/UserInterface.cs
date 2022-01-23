@@ -1,22 +1,13 @@
-﻿using Hospital.DataLayer;
-using Hospital.DataLayer.Repositories;
-using Hospital.Domain.Entities;
-using Hospital.Domain.Enums;
-using Hospital.Service;
-using Hospital.Service.Application;
-using Hospital.Service.Interfaces;
-using Hospital.Service.Models;
+﻿using Hospital.Service.Application;
 using Hospital.UI.Extensions;
-using System.Reflection;
+using System.Globalization;
 
 namespace Hospital.UI
 {
     public static class UserInterface
     {
-        private static readonly IDoctorService doctorService = new DoctorService();
-        private static readonly Strategy loginStrategy;
         public static void Start()
-        { 
+        {
             while (true)
             {
                 Console.Clear();
@@ -24,14 +15,20 @@ namespace Hospital.UI
                 Console.WriteLine("Press any key to continue..");
                 Console.ReadKey();
                 Strategy loginStrategy;
-                int optionpanel = GetUserOption(new List<string> { "Doctor Panel", "Patient Panel" });
+                int optionpanel = GetUserOption(new List<string> { "Doctor Panel", "Patient Panel" }, String.Empty);
                 switch (optionpanel)
                 {
-                    case 1: loginStrategy = new DoctorStartegy(); break;
-                    case 2: loginStrategy = new PatientStrategy(); break;
+                    case 1: loginStrategy = new DoctorStartegy(new DoctorController()); break;
+                    case 2: loginStrategy = new PatientStrategy(new PatientController()); break;
                     default: throw new ArgumentOutOfRangeException();
                 }
-                int optionlogin = GetUserOption(new List<string> { "Login", "Register" });
+                var menu = new List<string> { "Login", "Register" };
+
+                if (optionpanel == 2)
+                {
+                    menu.Remove("Register");
+                }
+                int optionlogin = GetUserOption(menu, String.Empty);
                 switch (optionlogin)
                 {
                     case 1: loginStrategy.Login(); break;
@@ -40,6 +37,10 @@ namespace Hospital.UI
                 }
             }
         }
+        /// <summary>
+        /// Shows a form to the user to compleate it, based on the list of parameters
+        /// </summary>
+        /// <returns>Key value-pair key is parameter name value is value</returns>
         public static Dictionary<string, string> GetUserInput(List<string> questions)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -49,9 +50,17 @@ namespace Hospital.UI
                 foreach (string question in questions)
                 {
                     var str = String.Empty;
-                    if (question.Contains("ssword"))
+                    if (question.Contains("assword"))
                     {
                         str = HidenPassword(question);
+                    }
+                    else if (question.Contains("CardNumber"))
+                    {
+                        str = Max15Characters(question);
+                    }
+                    else if (question.Contains("StartsAt"))
+                    {
+                        str = GetDate(question);
                     }
                     else if (question.Contains("*"))
                     {
@@ -68,12 +77,41 @@ namespace Hospital.UI
             }
             return dictionary;
         }
-        public static int GetUserOption(List<string> options)
+
+        private static string GetDate(string question)
+        {
+            string str = String.Empty;
+            bool parseResult = true;
+            string[] formats = { "dd/MM/yyyy hh:mm", "d/M/yyyy hh:mm", "dd/M/yyyy hh:mm", "d/MM/yyyy hh:mm",
+                "dd/MM/yyyy", "d/MM/yyyy", "dd/M/yyyy", "d/M/yyyy" };
+            while (String.IsNullOrEmpty(str) || !parseResult)
+            {
+                Console.Clear();
+                if (!parseResult)
+                {
+                    Console.WriteLine("Wrong format");
+                }
+                Console.WriteLine(question+" (dd/MM/yyyy hh:mm)");
+                str = Console.ReadLine();
+                parseResult = DateTime.TryParseExact(str, formats, new CultureInfo("pl-PL"), DateTimeStyles.None, out DateTime dt);
+            }
+            return str;
+        }
+
+        /// <summary>
+        /// Asks the user which menu item he wants to select
+        /// </summary>
+        /// <returns>Item number from menu</returns>
+        public static int GetUserOption(List<string> options, string additional)
         {
             int answer = 0;
             while (answer <= 0 || answer > options.Count)
             {
                 Console.Clear();
+                if(additional != String.Empty)
+                {
+                    Console.WriteLine(additional + "\n");
+                }
                 foreach (var option in options)
                 {
                     Console.WriteLine($"{options.IndexOf(option) + 1}. {option}");
@@ -113,7 +151,7 @@ namespace Hospital.UI
                 }
                 else
                 {
-                    if(str.Length>0)
+                    if (str.Length > 0)
                     {
                         str = str.Substring(0, str.Length - 1);
                     }
@@ -122,6 +160,18 @@ namespace Hospital.UI
             }
             while (key.Key != ConsoleKey.Enter);
             return str.TrimEnd('\r');
+        }
+        private static string Max15Characters(string question)
+        {
+
+            string str = String.Empty;
+            while (String.IsNullOrEmpty(str) || str.Length > 15)
+            {
+                Console.Clear();
+                Console.WriteLine(question);
+                str = Console.ReadLine();
+            }
+            return str;
         }
     }
 }

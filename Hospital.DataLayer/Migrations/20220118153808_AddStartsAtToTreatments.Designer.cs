@@ -3,15 +3,19 @@ using System;
 using Hospital.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
 namespace Hospital.DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220118153808_AddStartsAtToTreatments")]
+    partial class AddStartsAtToTreatments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -3198,108 +3202,6 @@ namespace Hospital.DataLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Specialisations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Allergy and immunology"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Anesthesiology"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Dermatology"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Diagnostic radiology"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Emergency medicine"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Family medicine"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Internal medicine"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Medical genetics"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Neurology"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Nuclear medicine"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "Obstetrics and gynecology"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Name = "Ophthalmology"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Name = "Pathology"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Name = "Pediatrics"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Name = "Physical medicine and rehabilitation"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Name = "Preventive medicine"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Name = "Psychiatry"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Name = "Radiation oncology"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            Name = "Surgery"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            Name = "Urology"
-                        });
                 });
 
             modelBuilder.Entity("Hospital.Domain.Entities.Treatment", b =>

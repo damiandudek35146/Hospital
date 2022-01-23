@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.DataLayer", "Hospi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.UI", "Hospital.UI\Hospital.UI.csproj", "{865A1FFF-5FB1-4434-9CC8-1413DA5804FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Service", "Hospital.Service\Hospital.Service.csproj", "{1E07656F-2AF1-415C-96D4-C81BAC6BCF68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Service", "Hospital.Service\Hospital.Service.csproj", "{1E07656F-2AF1-415C-96D4-C81BAC6BCF68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

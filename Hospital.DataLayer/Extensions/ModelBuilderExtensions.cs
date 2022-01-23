@@ -1,10 +1,5 @@
 ﻿using Hospital.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog.DataLayer.Extensions
 {
@@ -53,7 +48,7 @@ namespace Blog.DataLayer.Extensions
             specialisations.Add(new Specialisation { Id = 18, Name = "Radiation oncology" });
             specialisations.Add(new Specialisation { Id = 19, Name = "Surgery" });
             specialisations.Add(new Specialisation { Id = 20, Name = "Urology" });
-            modelBuilder.Entity<Bed>().HasData(specialisations);
+            modelBuilder.Entity<Specialisation>().HasData(specialisations.ToArray());
         }
     }
 }
