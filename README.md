@@ -4,7 +4,7 @@ A console application that works with the Microsoft SQL Server database using En
 The application allows you to set up accounts and manage patients in the hospital.
 
 
-### Design patterns
+## Design patterns
 
 #### Creational patterns
 <ul>
@@ -58,61 +58,26 @@ The application allows you to set up accounts and manage patients in the hospita
   </ul>
 <br>
 
-### Parallel Programming
+## Parallel Programming
 
 ### Task
-
+<b>Create new task and use parallel loop</b>
 ![image](https://user-images.githubusercontent.com/56117599/151020794-0e3966ba-01f5-4b19-9c3a-216605415c08.png)
+<br>
+### Async
+<b>Use asynchronous methods</b>
+![image](https://user-images.githubusercontent.com/56117599/151024042-33f911e4-3d76-48ce-8b14-308919de8831.png)
 
-<ul>
-    <li>
-        <a href="https://refactoring.guru/design-patterns/builder"><b>Builder</b></a>
-      <ul>
-        <li><a href="https://github.com/damiandudek35146/Hospital/tree/master/Hospital.UI/Builder">Hospital.UI/Builder</a></li>
-      </ul>
-    </li>
-    <br>
-    <li>
-      <a href="https://refactoring.guru/design-patterns/singleton"><b>Singleton</b></a>
-      <ul >
-        <li><a href="https://github.com/damiandudek35146/Hospital/blob/master/Hospital.DataLayer/ConnectionStringSingleton.cs"> ConnectionStringSingleton.cs </a></li>
-      </ul>
-    </li>
-  </ul>
-  
-  ### Async
-<ul>
-    <li>
-        <a href="https://refactoring.guru/design-patterns/builder"><b>Builder</b></a>
-      <ul>
-        <li><a href="https://github.com/damiandudek35146/Hospital/tree/master/Hospital.UI/Builder">Hospital.UI/Builder</a></li>
-      </ul>
-    </li>
-    <br>
-    <li>
-      <a href="https://refactoring.guru/design-patterns/singleton"><b>Singleton</b></a>
-      <ul >
-        <li><a href="https://github.com/damiandudek35146/Hospital/blob/master/Hospital.DataLayer/ConnectionStringSingleton.cs"> ConnectionStringSingleton.cs </a></li>
-      </ul>
-    </li>
-  </ul>
+
 ## About The Project
 This project was created in order to get to know .Net 6 better, implement design patterns and asynchronous programming, connect with the database, implement good programming practices and independently solve encountered problems in the process of developing the application functionality.
 
 ### Built With
-* [Visual Studio 2019](https://visualstudio.microsoft.com/pl/vs/)
-* [C# 9.0](https://docs.microsoft.com/pl-pl/dotnet/csharp/whats-new/csharp-9)
-* [.NET Core 5](https://docs.microsoft.com/pl-pl/dotnet/core/dotnet-five)
-* [Razor](razor-pages/?view=aspnetcore-5.0&tabs=visual-studio)
+* [Visual Studio 2022](https://visualstudio.microsoft.com/pl/vs/)
+* [C# 10.0](https://docs.microsoft.com/pl-pl/dotnet/csharp/whats-new/csharp-10)
+* [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 * [Entity Framework Core (Code First)](https://docs.microsoft.com/pl-pl/ef/core/)
 * [MS SQL Server](https://www.microsoft.com/pl-pl/sql-server/sql-server-downloads)
-* [Fluent Validation](https://docs.fluentvalidation.net/en/latest/)
-* [Auto Mapper](https://docs.automapper.org/en/stable/)
-* [SendGrid](https://docs.sendgrid.com/)
-* [Google Auth](https://developers.google.com/identity/protocols/oauth2)
-* [Facebook Auth](https://developers.facebook.com/docs/facebook-login/)
-* [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
-* [Font Awesome](https://fontawesome.com/v5.15/how-to-use/on-the-web/referencing-icons/basic-use)
 
 
 ## Getting Started
