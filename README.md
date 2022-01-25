@@ -1,8 +1,6 @@
 # Hospital management system
 
-A console application that works with the Microsoft SQL Server database using Entity Framework Core 6 with code first approach.
-The application allows you to set up accounts and manage patients in the hospital.
-
+A console application that works with the Microsoft SQL Server database using Entity Framework Core 6 
 ## Design patterns
 
 #### Creational patterns
@@ -76,7 +74,7 @@ This project was created in order to get to know .Net 6 better, implement design
 * [Visual Studio 2022](https://visualstudio.microsoft.com/pl/vs/)
 * [C# 10.0](https://docs.microsoft.com/pl-pl/dotnet/csharp/whats-new/csharp-10)
 * [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-* [Entity Framework Core (Code First)](https://docs.microsoft.com/pl-pl/ef/core/)
+* [Entity Framework Core 6 (Code First)](https://docs.microsoft.com/pl-pl/ef/core/)
 * [MS SQL Server](https://www.microsoft.com/pl-pl/sql-server/sql-server-downloads)
 
 
