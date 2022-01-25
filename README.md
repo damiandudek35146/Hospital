@@ -7,6 +7,14 @@ The application allows you to set up accounts and manage patients in the hospita
 ## Design patterns
 
 - A one page agency theme.
+<ol>
+    <li>
+      About The Project
+      <ul>
+        <li>Built With</li>
+      </ul>
+    </li>
+  </ol>
 <details>
   <summary>Table of Contents</summary>
   <ol>
