@@ -73,10 +73,7 @@ namespace Hospital.UI
                 //Parallelization of data
                 Parallel.ForEach(allPatients.Result, patient =>
                 {
-                    lock (locker)
-                    {
-                        success = _patientController.Delete(patient).Result;
-                    }
+                    success = _patientController.Delete(patient).Result;
                 });
                 return success;
             });
@@ -97,7 +94,7 @@ namespace Hospital.UI
             return _patientController.GetAll().Result;
         }
 
-  
+
         private void initDoctor()
         {
             Doctor = _doctorController.Get(Doctor.Id).Result;
@@ -181,7 +178,7 @@ namespace Hospital.UI
             {
                 patientsToShow.Add($"{item.FirstName} {item.LastName}");
             }
-            if(patientsToShow.Count > 0)
+            if (patientsToShow.Count > 0)
             {
                 var menuOption = UserInterface.GetUserOption(patientsToShow, "Select patient to menage:");
                 return Patients.ElementAt(menuOption - 1);
@@ -195,7 +192,7 @@ namespace Hospital.UI
                 Console.ReadKey();
                 return new Patient();
             }
-            
+
         }
         public void PatientMenagment()
         {
@@ -302,7 +299,7 @@ namespace Hospital.UI
             var questions = new List<string> { "Name*", "Description*", "DurationInHours*", "Room number (1-100)", "Bed number (1-5)", "StartsAt*" };
             var registerData = UserInterface.GetUserInput(questions);
             Director director = new Director();
-            Builder builder = new TreatmentBuilder(registerData,CurrentPatient, Doctor, new BedController());
+            Builder builder = new TreatmentBuilder(registerData, CurrentPatient, Doctor, new BedController());
             director.Construct(builder);
             var treatment = builder.GetResult();
 
@@ -367,7 +364,7 @@ namespace Hospital.UI
             {
                 questions.Add(item.Name);
             }
-            if(specialisationsToShow.Count!=0)
+            if (specialisationsToShow.Count != 0)
             {
                 var menuOption = UserInterface.GetUserOption(questions, "Add a new specialization");
                 var newSpec = specialisationsToShow.ElementAt(menuOption - 1);
@@ -405,7 +402,7 @@ namespace Hospital.UI
             if (questions.Count != 0)
             {
                 var menuOption = UserInterface.GetUserOption(questions, "Select specialisation to delete");
-                var success = _doctorController.RemoveSpecialisation(Doctor, Doctor.Specialisations.ElementAt(menuOption-1)).Result;
+                var success = _doctorController.RemoveSpecialisation(Doctor, Doctor.Specialisations.ElementAt(menuOption - 1)).Result;
                 if (success)
                 {
                     Console.WriteLine("Specialization deleted correctly");
