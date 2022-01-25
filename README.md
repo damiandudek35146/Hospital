@@ -1,14 +1,39 @@
 # Hospital management system
 
-A library of open source, free to download, MIT licensed website themes and template based on [Bootstrap](https://getbootstrap.com/). All of the templates and themes featured on Start Bootstrap are up to date for Bootstrap 4!
+A console application that works with the Microsoft SQL Server database using Entity Framework Core 6 with code first approach.
+The application allows you to set up accounts and manage patients in the hospital.
 
-For more information please visit the website at <https://startbootstrap.com>.
 
-## Themes
+## Design patterns
 
 - A one page agency theme.
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-<!-- GETTING STARTED -->
+
+
 ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
