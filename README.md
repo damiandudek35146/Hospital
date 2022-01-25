@@ -6,27 +6,53 @@ The application allows you to set up accounts and manage patients in the hospita
 
 ## Design patterns
 
-- A one page agency theme.
-<ol>
+#### Creational patterns
+<ul>
     <li>
-      About The Project
+      Builder
       <ul>
-        <li>Built With</li>
+        <li>Hospital.UI/Builder</li>
       </ul>
     </li>
-  </ol>
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
     <li>
-      About The Project
-      <ul>
-        <li>Built With</li>
+      Singleton
+      <ul >
+        <li>Hospital.DataLayer/ConnectionStringSingleton.cs</li>
       </ul>
     </li>
-  </ol>
-</details>
-
+  </ul>
+  
+  #### Structural patterns
+<ul>
+    <li>
+      Facade
+      <ul >
+        <li>Hospital.UI/Facade</li>
+      </ul>
+    </li>
+    <li>
+      Decorator
+      <ul>
+        <li>Hospital.UI/Decorator</li>
+      </ul>
+    </li>
+  </ul>
+  
+   #### Behavioral patterns
+<ul>
+    <li>
+      Strategy
+      <ul >
+        <li>Hospital.UI/Strategy</li>
+      </ul>
+    </li>
+    <li>
+      Memento
+      <ul>
+        <li>Hospital.UI/Memento</li>
+      </ul>
+    </li>
+  </ul>
 
 
 ## Getting Started
