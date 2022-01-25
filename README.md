@@ -66,7 +66,8 @@ The application allows you to set up accounts and manage patients in the hospita
 <br>
 ### Async
 <b>An example of an async method</b>
-![image](https://user-images.githubusercontent.com/56117599/151024042-33f911e4-3d76-48ce-8b14-308919de8831.png)
+![image](https://user-images.githubusercontent.com/56117599/151057896-b7c7bd6c-aa14-4d31-b8d1-1120c48ddfd8.png)
+
 
 
 ## About The Project
