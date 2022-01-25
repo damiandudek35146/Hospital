@@ -1,5 +1,4 @@
 # Hospital management system
-
 A console application that works with the Microsoft SQL Server database using Entity Framework Core 6 with code first approach.
 The application allows you to set up accounts and manage patients in the hospital.
 
