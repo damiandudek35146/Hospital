@@ -21,22 +21,40 @@ For more information please visit the website at <https://startbootstrap.com>.
 - [**SB Admin 2**](https://startbootstrap.com/themes/sb-admin-2/) - A free Bootstrap admin theme.
 - [**Stylish Portfolio**](https://startbootstrap.com/themes/stylish-portfolio/) - A stylish Bootstrap portfolio theme.
 
-## Templates
+<!-- GETTING STARTED -->
+## Getting Started
 
-- [**Bare**](https://startbootstrap.com/templates/bare/) - A Bootstrap HTML starter template.
-- [**Blog Home**](https://startbootstrap.com/templates/blog-home/) - A blog home page template.
-- [**Blog Post**](https://startbootstrap.com/templates/blog-post/) - A blog post starter template.
-- [**Business Frontpage**](https://startbootstrap.com/templates/business-frontpage/) - A business home page template.
-- [**Full Width Pics**](https://startbootstrap.com/templates/full-width-pics/) - Full width picture backgrounds.
-- [**Heroic Features**](https://startbootstrap.com/templates/heroic-features/) - A basic Bootstrap home page template.
-- [**Modern Business**](https://startbootstrap.com/templates/modern-business/) - A multipurpose website template.
-- [**SB Admin**](https://startbootstrap.com/templates/sb-admin/) - A free Bootstrap admin template.
-- [**Scrolling Nav**](https://startbootstrap.com/templates/scrolling-nav/) - A scrolling navigation template.
-- [**Shop Homepage**](https://startbootstrap.com/templates/shop-homepage/) - An online store homepage template.
-- [**Shop Item**](https://startbootstrap.com/templates/shop-item/) - An online store item template.
-- [**Simple Sidebar**](https://startbootstrap.com/templates/simple-sidebar/) - A Bootstrap sidebar template.
-- [**Small Business**](https://startbootstrap.com/templates/small-business/) - A simple business Bootstrap template.
-- [**The Big Picture**](https://startbootstrap.com/templates/the-big-picture/) - A starter portfolio template.
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 ## Copyright and License
 
