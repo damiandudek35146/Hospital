@@ -61,11 +61,11 @@ The application allows you to set up accounts and manage patients in the hospita
 ## Parallel Programming
 
 ### Task
-<b>Create new task and use parallel loop</b>
+<b>Creating a new task and using parallel loop</b>
 ![image](https://user-images.githubusercontent.com/56117599/151020794-0e3966ba-01f5-4b19-9c3a-216605415c08.png)
 <br>
 ### Async
-<b>Use asynchronous methods</b>
+<b>An example of an async method</b>
 ![image](https://user-images.githubusercontent.com/56117599/151024042-33f911e4-3d76-48ce-8b14-308919de8831.png)
 
 
@@ -82,49 +82,29 @@ This project was created in order to get to know .Net 6 better, implement design
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This is an instruction how tu run this project
 
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* Visual Studio
+* SQL Server
 
-### Installation
+### Run
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
+1. Download this repo
+2. Set login and password in connection string -> Hospital.DataLayer/ConnectionStringSingleton.cs
+3. Open Package Manager Console and set dafault project as a Hospital.DataLayer
+4. Add Migration in Package Manager Console
 ```
-$ cd ../lorem
-$ npm install
-$ npm start
+add-migration init
 ```
-
-
-```bash
-pip install foobar
+3. Update database in Package Manager Console
 ```
-
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
+update-database
+```
+4. Set Hospital.UI as a startup project
+5. Run and enjoy :)
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
