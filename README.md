@@ -6,20 +6,7 @@ For more information please visit the website at <https://startbootstrap.com>.
 
 ## Themes
 
-- [**Agency**](https://startbootstrap.com/themes/agency/) - A one page agency theme.
-- [**Business Casual**](https://startbootstrap.com/themes/business-casual/) - A fully developed business website.
-- [**Clean Blog**](https://startbootstrap.com/themes/clean-blog/) - A clean blog theme.
-- [**Clean Blog - Jekyll**](https://startbootstrap.com/themes/clean-blog-jekyll/) - A clean blog theme.
-- [**Coming Soon**](https://startbootstrap.com/themes/coming-soon/) - A coming soon theme.
-- [**Creative**](https://startbootstrap.com/themes/creative/) - A one page creative theme.
-- [**Freelancer**](https://startbootstrap.com/themes/freelancer/) - A one page freelancer theme.
-- [**Grayscale**](https://startbootstrap.com/themes/grayscale/) - A multipurpose one page theme.
-- [**Landing Page**](https://startbootstrap.com/themes/landing-page/) - A clean, functional landing page theme.
-- [**New Age**](https://startbootstrap.com/themes/new-age/) - An app landing page theme.
-- [**One Page Wonder**](https://startbootstrap.com/themes/one-page-wonder/) - A simple one page website template.
-- [**Resume**](https://startbootstrap.com/themes/resume/) - A Bootstrap resume theme.
-- [**SB Admin 2**](https://startbootstrap.com/themes/sb-admin-2/) - A free Bootstrap admin theme.
-- [**Stylish Portfolio**](https://startbootstrap.com/themes/stylish-portfolio/) - A stylish Bootstrap portfolio theme.
+- A one page agency theme.
 
 <!-- GETTING STARTED -->
 ## Getting Started
