@@ -85,19 +85,21 @@ namespace Hospital.Service.Application
                 }
             }
         }
-        public async Task<bool> RemoveSpecialisation(Doctor doctor, Specialisation specialisation)
+        public async Task<bool> RemoveSpecialisation(Doctor _doctor, Specialisation _specialisation)
         {
             using (var context = new ApplicationDbContext())
             {
                 try
                 {
-                    var doc = context.Doctors.Where(x => x.Id == doctor.Id).Include(x => x.Specialisations).ToListAsync().Result.First();
-                    doc.Specialisations = doc.Specialisations.Where(x => x.Name != specialisation.Name).ToList();
+                    var doctors = await context.Doctors.Where(x => x.Id == _doctor.Id).Include(x => x.Specialisations).ToListAsync();
+                    var doctor = doctors.First();
+                    doctor.Specialisations = doctor.Specialisations.Where(x => x.Name != _specialisation.Name).ToList();
                     context.SaveChanges();
                     return true;
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine($"Exception: {ex.Message}");
                     return false;
                 }
             }

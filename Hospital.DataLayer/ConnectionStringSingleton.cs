@@ -16,7 +16,7 @@
         }
         public string ConnectionString
         {
-            get 
+            get
             { 
                 return @"Server=.\SQLEXPRESS;Database=Hospital;User Id=Login;Password=Password;"; 
             }
