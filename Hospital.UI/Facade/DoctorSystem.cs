@@ -73,10 +73,7 @@ namespace Hospital.UI
                 //Parallelization of data
                 Parallel.ForEach(allPatients.Result, patient =>
                 {
-                    lock (locker)
-                    {
-                        success = _patientController.Delete(patient).Result;
-                    }
+                    success = _patientController.Delete(patient).Result;
                 });
                 return success;
             });
